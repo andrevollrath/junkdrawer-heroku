@@ -1,0 +1,25 @@
+development:
+ adapter: postgresql
+ encoding: unicode
+ database: 
+ host: localhost
+ username: drew
+ password: drew
+
+test:
+ adapter: postgresql
+ encoding: unicode
+ database: 
+ pool: 5
+ host: localhost
+ username: drew
+ password: drew
+
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: 
+ pool: 5
+ host: localhost
+ username: drew
+ password: drew
