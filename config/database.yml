@@ -1,7 +1,7 @@
 development:
  adapter: postgresql
  encoding: unicode
- database: 
+ database: junk_dev
  host: localhost
  username: drew
  password: drew
@@ -9,7 +9,7 @@ development:
 test:
  adapter: postgresql
  encoding: unicode
- database: 
+ database: junk_test
  pool: 5
  host: localhost
  username: drew
@@ -18,7 +18,7 @@ test:
 production:
  adapter: postgresql
  encoding: unicode
- database: 
+ database: junk_dev
  pool: 5
  host: localhost
  username: drew
