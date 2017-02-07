@@ -1,5 +1,6 @@
 class JunkController < ApplicationController
   
+  #Shows everyone's public junk!
   get '/junk' do
     redirect_if_not_logged_in
     erb :'junk/index'    
