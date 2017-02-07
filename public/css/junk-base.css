@@ -4,6 +4,7 @@ font-family: 'Amatic SC', cursive;*/
 body{
   font-family: 'Josefin Slab', serif;
   background-color: #FEF9E7;
+  font-size: 16px;
 }
 
 h1{
@@ -110,4 +111,20 @@ h1{
 .small-hotdog{
   width: 55px;
   height: auto;
+}
+
+.btn-xl{
+  padding: 10px 16px;
+  min-width: 120px;
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+label.col-sm-3.control-label{
+  font-family: 'Amatic SC', cursive;
+  font-size: 20px;
+}
+
+.form-control{
+  font-size: 16px;
 }

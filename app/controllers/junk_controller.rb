@@ -39,11 +39,14 @@ class JunkController < ApplicationController
   end
 
   post '/junk' do
-    if params[:content].empty? 
+    #Check for content requirements
+    if false
       redirect to "/junk/new"
     else
+      binding.pry
+
       ##Create Junk
-      redirect to "/junk/#{junk.id}"
+      #redirect to "/junk/#{junk.id}"
     end
   end
 
