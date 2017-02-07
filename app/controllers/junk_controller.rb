@@ -40,17 +40,19 @@ class JunkController < ApplicationController
 
   post '/junk' do
     #Check for content requirements
-    if false
+    if Junk.no_params(params)
       redirect to "/junk/new"
     else
-      binding.pry
-
-      ##Create Junk
-      #redirect to "/junk/#{junk.id}"
+      puts params
+      junk = Junk.create(params[:junk])
+      junk.tag = Tag.find_or_create_by(name: params[:tag])
+      junk.user = User.find(session[:user_id])
+      junk.save
+      redirect to "/junk/#{junk.id}"
     end
   end
 
-  delete '/tweets/:id/delete' do
+  delete '/junk/:id/delete' do
     redirect_if_not_logged_in
     junk = Junk.find(params[:id])
     
