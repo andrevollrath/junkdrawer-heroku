@@ -6,8 +6,8 @@ body{
   background-color: #FFF0A5;
 }
 
-.fa.fa-hand-spock-o.icon_opener{
-  font-size: 100px;
+h1{
+  font-weight: 600;
 }
 
 .tweet{
@@ -69,6 +69,10 @@ body{
   background-color: #c9302c;
 }
 
+.navbar-default .navbar-nav > li > a:hover.btn-info{
+  background-color: #31b0d5;
+}
+
 .navbar-nav > li > a {
   margin-top: 8px;
   padding-top: 7px;
@@ -79,4 +83,22 @@ body{
   min-width: 400px;
   text-align: center;
   padding: 32px;
+}
+
+.btn-space-left{
+  margin-left: 3px;
+}
+
+.btn-space-right{
+  margin-right: 3px;
+}
+
+.big-hotdog{
+  max-width: 250px;
+  height: auto;
+}
+
+.small-hotdog{
+  width: 55px;
+  height: auto;
 }
