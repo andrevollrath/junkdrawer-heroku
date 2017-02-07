@@ -7,7 +7,20 @@ body{
 }
 
 h1{
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.nav{
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.btn{
+  font-family: 'Amatic SC', cursive;  
+  font-weight: 700;
+  font-size: 20px;  
 }
 
 .tweet{
