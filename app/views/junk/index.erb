@@ -1,4 +1,11 @@
 <div class="text-center">
-<h1>Check out all the Junk!</h1>
-<h1>We're all out of Junk!</h1>
+  
+  <% if @junk.count == 0 %>
+    <h1>We're all out of Junk!</h1>
+  
+  <% else %>
+    <h1>Check out all the Junk!</h1>
+  
+  <% end %>
+
 </div>

@@ -3,12 +3,13 @@ class JunkController < ApplicationController
   #Shows everyone's public junk!
   get '/junk' do
     redirect_if_not_logged_in
+    @junk = Junk.all
     erb :'junk/index'    
   end
 
   get '/junk/new' do
     redirect_if_not_logged_in
-    erb :'tweets/new'
+    erb :'junk/new'
   end
 
   get '/junk/:id/edit' do
