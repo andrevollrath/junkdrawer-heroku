@@ -1,23 +1,36 @@
 <div class="text-center">
+  
+  <h1>Junk :: <%= @junk.id %></h1><br><br>
+  
   <div class="show_box">
     
     <% if !@junk.name.empty? %>  
-      <div class="name"><%= @junk.name %></div>
+      <div class="junk_name"><%= @junk.name %></div>
     <% end %>
-    
-    <% if !@junk.url.empty? %>  
-      <div class="link"><a href="<%= @junk.url %>"><%= @junk.url %></a></div>
-    <% end %>
-    
+       
     <% if !@junk.note.empty? %>  
-      <div class="notes"><%= @junk.note %></div>
+      <div class="junk_notes"><%= @junk.note %></div>
     <% end %>
 
-    <div class="tag"><span class="tag tag-1"><%= @junk.tag.name %></span></div>
+    <div class="junk_tag">
+      <span class="tag tag-1"><%= @junk.tag.name %></span>
+      <% if !@junk.url.empty? %>    
+        <span><a href="<%= @junk.to_link %>" target="_blank">-- <%= @junk.url %></a></span>
+      <% end %>
+    </div>
   
-    <div class="foot">by <%= @junk.user.username %></div>
+    <div class="junk_foot">
+    <% if @junk.user_id != @user_id %>
+        by <%= @junk.user.username %> 
+    <% else %>
+    
+      <span class="show_box_edit">
+      <a href="/junk/<%= @junk.id %>/edit">edit</a> :: 
+      
+      <form class ="form_inline" method="post" action="/junk/<%= @junk.id %>/delete"><input id="hidden" type="hidden" name="_method" value="delete"><input class="show_box_del" type="submit" value="delete"/></form>
+
+    <% end %>
+    </div>
 
   </div>
-
-
 </div>

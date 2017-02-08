@@ -25,7 +25,8 @@ class JunkController < ApplicationController
 
   get '/junk/:id' do
     redirect_if_not_logged_in
-    @junk = Junk.find(params[:id])  
+    @junk = Junk.find(params[:id]) 
+    @user_id = session[:user_id] 
     puts @junk
     erb :'junk/show'
   end

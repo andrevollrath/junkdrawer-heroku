@@ -132,6 +132,7 @@ label.col-sm-3.control-label{
 
 .junk_row > div.box_coord{
   background-color: white;
+  text-align: left;
   border-style: solid;
   border-width: 1px;
   border-color: #DAD2B3;
@@ -143,19 +144,16 @@ label.col-sm-3.control-label{
 .junk_box1{
   width: 225px;
   margin: 10px 10px;
-  min-height: 60px;
 }
 
 .junk_box2{
   margin: 20px 10px;
   width: 275px;
-  min-height: 100px;
 }
 
 .junk_box3{
   margin: 15px 10px;
   width: 325px;
-  min-height: 30px;
 }
 
 .show_box{
@@ -169,32 +167,30 @@ label.col-sm-3.control-label{
   margin: 0 auto;
 }
 
-.show_box > div.name{
-  margin: 12px 12px 0px;
-}
-
-.show_box > div.link{
+.junk_link{
   margin: 0px 12px 12px;
 }
 
-.show_box > div.notes{
+.junk_notes{
   margin: 12px;
 }
 
-.show_box > div.tag{
+.junk_tag{
   margin: 12px;
 }
 
-.show_box > div.foot{
-  padding: 6px 12px;
+.junk_foot{
+  padding: 2px 12px;
   background-color: #DAD2B3;
   color: white;
   font-family: 'Amatic SC', cursive;
   font-weight: 700;
   font-size: 18px;
+  text-align: right;
 }
 
-div.show_box > div.name{
+.junk_name{
+  margin: 12px 12px 0px;  
   font-family: 'Amatic SC', cursive;
   font-weight: 700;
   font-size: 24px;
@@ -216,3 +212,21 @@ span.tag{
     background-color: #FFB03B;
 }
 
+.show_box_del{
+  color: #d9534f;
+  background-color: #DAD2B3;
+  border: none;
+}
+
+.show_box_del:hover{
+  color: #c9302c;
+  text-decoration: underline;
+}
+
+a.undercover{
+  color: black;
+}
+
+.form_inline{
+  display: inline;
+}
