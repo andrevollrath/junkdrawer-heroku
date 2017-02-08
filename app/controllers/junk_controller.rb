@@ -47,11 +47,16 @@ class JunkController < ApplicationController
     if Junk.no_params(params)
       redirect to "/junk/new"
     else
+      #binding.pry
       junk = Junk.create(params[:junk])
+      
       junk.tag = Tag.find_or_create_by(name: params[:tag])
-      junk.user = User.find(session[:user_id])
+      junk.user = User.find(session[:user_id])      
+      junk.image = params[:image] if params[:image]
+
       junk.save
       redirect to "/junk/#{junk.id}"
+      #redirect to "/junk/new"
     end
   end
 

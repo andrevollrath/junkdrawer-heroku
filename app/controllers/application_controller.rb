@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "fwitter"    
+    set :session_secret, "lotsofjunk"    
     #To show custom error handler in development
     #set :show_exceptions, :after_handler
   end

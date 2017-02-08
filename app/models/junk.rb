@@ -1,6 +1,7 @@
 class Junk < ActiveRecord::Base
   belongs_to :user
   belongs_to :tag
+  mount_uploader :image, ImageUploader
 
   def to_link
     self.url.match("http") ? self.url : "http://#{self.url}"

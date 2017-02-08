@@ -8,6 +8,7 @@ gem 'rake'
 gem 'require_all'
 gem 'pg'
 gem 'bcrypt'
+gem 'carrierwave'
 
 group :test do
   gem 'pry'
