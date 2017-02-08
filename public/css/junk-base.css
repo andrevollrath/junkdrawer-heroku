@@ -167,8 +167,8 @@ label.col-sm-3.control-label{
   margin: 0 auto;
 }
 
-.junk_link{
-  margin: 0px 12px 12px;
+.junk_tag > span > a{
+  word-wrap:break-word;
 }
 
 .junk_notes{

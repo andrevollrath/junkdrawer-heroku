@@ -1,3 +1,85 @@
-<div class="text-center">
-<h1>Junk - Edit</h1>
+<div class="row">
+  <div class = "col-md-2"></div>
+  <div class = "col-md-8">
+  <div class="row">
+    <div class = "col-sm-3"></div>
+    <div class = "col-sm-9">
+      <h1>Edit your junk:</h1>
+      <h4>Mod that junk but remember you need a title || notes at the very least ;)</h4>
+      <br>
+    </div>    
+
+      <form action="/junk/<%= @junk.id %>" method="post" class="form-horizontal">
+      <input id="hidden" type="hidden" name="_method" value="patch"> 
+      
+        <div class="form-group">
+          <label for="junk-name" class="col-sm-3 control-label">Name*</label>
+          <div class="col-sm-9">
+            <input type="text" name="junk[name]" id="junk-name" class="form-control" value="<%= @junk.name %>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="junk-image" class="col-sm-3 control-label">Image URL</label>
+          <div class="col-sm-9">
+            <input type="text" name="image" id="junk-image" class="form-control" value="">
+          </div>
+        </div>        
+
+        <div class="form-group">
+          <label for="junk-url" class="col-sm-3 control-label">Website URL</label>
+          <div class="col-sm-9">
+            <input type="text" name="junk[url]" id="junk-url" class="form-control" value="<%= @junk.url %>">
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label for="junk-tag" class="col-sm-3 control-label">Tag</label>
+          <div class="col-sm-9">
+            <select class="form-control" name="tag" id="junk-tag">
+              <option <%= "selected" if @junk.tag.name == 'happening' %> value = "happening">happening</option>
+              <option <%= "selected" if @junk.tag.name == 'funny' %> value = "funny">funny</option>
+              <option <%= "selected" if @junk.tag.name == 'feel the bern' %> value = "feel the bern">feel the bern</option>
+              <option <%= "selected" if @junk.tag.name == 'awesome' %> value = "awesome">awesome</option>
+              <option <%= "selected" if @junk.tag.name == 'world' %> value = "world">world</option>
+              <option <%= "selected" if @junk.tag.name == 'instgram' %> value = "instagam">instagram</option>
+              <option <%= "selected" if @junk.tag.name == 'hotdog' %> value = "hotdog">hotdog</option>
+            </select>          
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="junk-note" class="col-sm-3 control-label">Notes*</label>
+          <div class="col-sm-9">
+            <textarea rows="3" name="junk[note]" id="junk-note" class="form-control"><%= @junk.note %></textarea>
+          </div>
+        </div> 
+        
+        <div class="form-group">
+          <label for="radio" class="col-sm-3 control-label">Visibility</label>        
+          <div class="col-sm-9">
+          <div class="radio">
+            <label>
+              <input type="radio" name="junk[visible]" id="radio" value="1" <%= "checked" if @junk.visible == 1 %>>
+              Public &mdash; Everyone will be able to view this junk
+            </label>
+          </div>          
+          <div class="radio">
+            <label>
+              <input type="radio" name="junk[visible]" id="radio" value="0" <%= "checked" if @junk.visible == 0 %>>
+              Private &mdash; Only you will be able to view this junk
+            </label>
+          </div>
+          </div>
+        </div>  
+
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <input class="btn btn-info btn-xl" id="submit" type="submit" value="Update">
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class = "col-md-2"></div>
+
 </div>

@@ -27,16 +27,16 @@ class JunkController < ApplicationController
     redirect_if_not_logged_in
     @junk = Junk.find(params[:id]) 
     @user_id = session[:user_id] 
-    puts @junk
     erb :'junk/show'
   end
 
   patch '/junk/:id' do
-    if params[:content].empty?
+    if Junk.no_params(params)
       redirect to "/junk/#{params[:id]}/edit"
     else 
-      #find and update junk
-      redirect to "/junk/#{tweet.id}"
+      junk = Junk.find(params[:id])
+      junk.update!(params[:junk])      
+      redirect to "/junk/#{junk.id}"
     end
   end
   
