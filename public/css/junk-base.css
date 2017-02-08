@@ -128,3 +128,91 @@ label.col-sm-3.control-label{
 .form-control{
   font-size: 16px;
 }
+
+
+.junk_row > div.box_coord{
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DAD2B3;
+  border-radius: 2px;
+  float: right;
+}
+
+/*Most likely use for images*/
+.junk_box1{
+  width: 225px;
+  margin: 10px 10px;
+  min-height: 60px;
+}
+
+.junk_box2{
+  margin: 20px 10px;
+  width: 275px;
+  min-height: 100px;
+}
+
+.junk_box3{
+  margin: 15px 10px;
+  width: 325px;
+  min-height: 30px;
+}
+
+.show_box{
+  text-align: left;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DAD2B3;
+  border-radius: 2px;
+  width: 225px;
+  margin: 0 auto;
+}
+
+.show_box > div.name{
+  margin: 12px 12px 0px;
+}
+
+.show_box > div.link{
+  margin: 0px 12px 12px;
+}
+
+.show_box > div.notes{
+  margin: 12px;
+}
+
+.show_box > div.tag{
+  margin: 12px;
+}
+
+.show_box > div.foot{
+  padding: 6px 12px;
+  background-color: #DAD2B3;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+div.show_box > div.name{
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+span.tag{
+  display: inline;
+  padding: 5px;
+  font-size: 75%;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 2px;
+}
+
+.tag-1 {
+    background-color: #FFB03B;
+}
+

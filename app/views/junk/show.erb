@@ -1,3 +1,23 @@
 <div class="text-center">
-<h1>Junk - Show</h1>
+  <div class="show_box">
+    
+    <% if !@junk.name.empty? %>  
+      <div class="name"><%= @junk.name %></div>
+    <% end %>
+    
+    <% if !@junk.url.empty? %>  
+      <div class="link"><a href="<%= @junk.url %>"><%= @junk.url %></a></div>
+    <% end %>
+    
+    <% if !@junk.note.empty? %>  
+      <div class="notes"><%= @junk.note %></div>
+    <% end %>
+
+    <div class="tag"><span class="tag tag-1"><%= @junk.tag.name %></span></div>
+  
+    <div class="foot">by <%= @junk.user.username %></div>
+
+  </div>
+
+
 </div>
