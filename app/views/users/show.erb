@@ -15,7 +15,7 @@
           <% end %>
 
           <% unless j.image.blank? %> 
-            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+            <%= "<div class='junk_image'><img src='/uploads/#{j.image.url.match(/[^\/]+$/)[0]}'></div>" %>
           <% end %>
           
           <% if !j.note.empty? %>  
@@ -48,7 +48,7 @@
           <% end %>
 
           <% unless j.image.blank? %> 
-            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+            <%= "<div class='junk_image'><img src='/uploads/#{j.image.url.match(/[^\/]+$/)[0]}'></div>" %>
           <% end %>
          
 

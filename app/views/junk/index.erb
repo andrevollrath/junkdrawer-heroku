@@ -22,10 +22,9 @@
           <% end %>
 
           <% unless j.image.blank? %> 
-            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+            <%= "<div class='junk_image'><img src='/uploads/#{j.image.url.match(/[^\/]+$/)[0]}'></div>" %>
           <% end %>
-         
-
+    
           <% if !j.note.empty? %>  
             <div class="junk_notes"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
           <% end %>
