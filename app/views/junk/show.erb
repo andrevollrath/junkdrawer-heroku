@@ -7,6 +7,10 @@
     <% if !@junk.name.empty? %>  
       <div class="junk_name"><%= @junk.name %></div>
     <% end %>
+
+    <% unless @junk.image.blank? %> 
+      <%= "<div class='junk_image'><img src='#{@junk.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+    <% end %>
        
     <% if !@junk.note.empty? %>  
       <div class="junk_notes"><%= @junk.note %></div>

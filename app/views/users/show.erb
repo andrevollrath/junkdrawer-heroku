@@ -1,28 +1,73 @@
 <div class="text-center">
-<h1>Your beautiful stuff</h1>
 
-  <% @user.junks.sort_by {rand}.each do |j| %>
-  <div class="junk_row">
-    <div class="junk_box<%= [1,2,3].sample %> box_coord">
-      <% if !j.name.empty? %>  
-        <div class="junk_name"><a class="undercover" href="/junk/<%= j.id %>"><%= j.name %></a></div>
-      <% end %>
-      
-      <% if !j.note.empty? %>  
-        <div class="junk_notes"><a class="undercover" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
-      <% end %>
 
-      <div class="junk_tag">
-        <span class="tag tag-1"><%= j.tag.name %></span>
-        <% if !j.url.empty? %>    
-          <span><a href="<%= j.to_link %>" target="_blank">-- <%= j.url %></a></span>
-        <% end %>
-      </div>
+  <% color = {'hotdog' => 1, 'funny' => 2, 'happening' => 3, 'feel the bern' => 4, 'awesome' => 5, 'world' => 6, 'instagam' => 7} %>
 
-      <div class="junk_foot">by <%= j.user.username %></div>
-     
+  <% if session[:user_id] == @user.id %>
+
+    <h1>Your beautiful stuff</h1>
+    <div class="junk_wrap">
+    <% @user.junks.sort_by {rand}.each do |j| %>
+        <div class="junk_box_nice box_coord">
+          <div>
+          <% if !j.name.empty? %>  
+            <div class="junk_name"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.name %></a></div>
+          <% end %>
+
+          <% unless j.image.blank? %> 
+            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+          <% end %>
+          
+          <% if !j.note.empty? %>  
+            <div class="junk_notes"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
+          <% end %>
+
+          <div class="junk_tag">
+            <span class="tag tag-<%= color[j.tag.name] %>"><%= j.tag.name %></span>
+            <% if !j.url.empty? %>    
+              <span><a href="<%= j.to_link %>" target="_blank">-- <%= j.url %></a></span>
+            <% end %>
+          </div>
+          </div><div>
+          <div class="junk_foot">by <%= j.user.username %></div>
+          </div>
+        </div>
+    <% end %>
     </div>
-  </div>
-  <% end %>
 
+  <% else %>    
+    
+    <h1><span class="junk_username"><%= @user.username%>'s&nbsp;&nbsp;</span>Junk</h1>   
+    <% @user.junks.sort_by {rand}.each do |j| %>
+    <% unless j.visible == 0 %> 
+      <% box = j.image.blank? ? [1,2,3].sample : 2 %> 
+      <div class="junk_row">
+        <div class="junk_box<%= box %> box_coord">
+          <% if !j.name.empty? %>  
+            <div class="junk_name"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.name %></a></div>
+          <% end %>
+
+          <% unless j.image.blank? %> 
+            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+          <% end %>
+         
+
+          <% if !j.note.empty? %>  
+            <div class="junk_notes"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
+          <% end %>
+
+          <div class="junk_tag">
+            <span class="tag tag-<%= color[j.tag.name] %>"><%= j.tag.name %></span>
+            <% if !j.url.empty? %>    
+              <span><a href="<%= j.to_link %>" target="_blank">-- <%= j.url %></a></span>
+            <% end %>
+          </div>
+
+          <div class="junk_foot">by <%= j.user.username %></div>
+         
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+  <% end %>
 </div>

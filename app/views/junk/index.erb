@@ -1,5 +1,7 @@
 <div class="text-center">
   <% count = @junk.count %>
+  <% color = {'hotdog' => 1, 'funny' => 2, 'happening' => 3, 'feel the bern' => 4, 'awesome' => 5, 'world' => 6, 'instagam' => 7} %>
+
   
   <% if @junk.count == 0 %>
     <h1>We're all out of Junk!</h1>
@@ -11,27 +13,35 @@
   <br>
 
   <% @junk.sort_by {rand}.each do |j| %>
-  <div class="junk_row">
-    <div class="junk_box<%= [1,2,3].sample %> box_coord">
-      <% if !j.name.empty? %>  
-        <div class="junk_name"><a class="undercover" href="/junk/<%= j.id %>"><%= j.name %></a></div>
-      <% end %>
-      
-      <% if !j.note.empty? %>  
-        <div class="junk_notes"><a class="undercover" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
-      <% end %>
+    <% unless j.visible == 0 %> 
+      <% box = j.image.blank? ? [1,2,3].sample : 2 %> 
+      <div class="junk_row">
+        <div class="junk_box<%= box %> box_coord">
+          <% if !j.name.empty? %>  
+            <div class="junk_name"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.name %></a></div>
+          <% end %>
 
-      <div class="junk_tag">
-        <span class="tag tag-1"><%= j.tag.name %></span>
-        <% if !j.url.empty? %>    
-          <span><a href="<%= j.to_link %>" target="_blank">-- <%= j.url %></a></span>
-        <% end %>
+          <% unless j.image.blank? %> 
+            <%= "<div class='junk_image'><img src='#{j.image.url.gsub(/^(\/[^\/]+){6}/,'')}'></div>" %>
+          <% end %>
+         
+
+          <% if !j.note.empty? %>  
+            <div class="junk_notes"><a class="undercover_blk" href="/junk/<%= j.id %>"><%= j.note_crop %></a></div>
+          <% end %>
+
+          <div class="junk_tag">
+            <span class="tag tag-<%= color[j.tag.name] %>"><%= j.tag.name %></span>
+            <% if !j.url.empty? %>    
+              <span><a href="<%= j.to_link %>" target="_blank">-- <%= j.url %></a></span>
+            <% end %>
+          </div>
+
+          <div class="junk_foot"><a class="undercover_wht" href="/users/<%= j.user.id %>">by <%= j.user.username %></a></div>
+         
+        </div>
       </div>
-
-      <div class="junk_foot">by <%= j.user.username %></div>
-     
-    </div>
-  </div>
+    <% end %>
   <% end %>
 
 </div>
